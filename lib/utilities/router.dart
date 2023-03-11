@@ -1,6 +1,7 @@
 import 'package:chat39/utilities/routes.dart';
 import 'package:chat39/view/pages/account/login_screen.dart';
 import 'package:chat39/view/pages/account/register_page.dart';
+import 'package:chat39/view/pages/home_screen.dart';
 import 'package:chat39/view/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +18,15 @@ Route<dynamic>onGenerate(RouteSettings route){
         settings: route,
       );
     case AppRoutes.loginPageRoute:
-    default: return MaterialPageRoute(builder: (context)=>
+     return MaterialPageRoute(builder: (context)=>
         LoginScreen(),
         settings: route,
       );
+  case AppRoutes.homePageRoute:
+  default: return MaterialPageRoute(builder: (context)=>
+  HomePage(),
+  settings: route,
+  );
   }
 }
 

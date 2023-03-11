@@ -1,7 +1,8 @@
 import 'package:auth_buttons/auth_buttons.dart';
-import 'package:chat39/controller/data/remote/firebase/cubit_account/cubitt_account_cubit.dart';
+import 'package:chat39/controller/data/remote/cubit/cubit_account/cubitt_account_cubit.dart';
 import 'package:chat39/utilities/app_string.dart';
 import 'package:chat39/utilities/color.dart';
+import 'package:chat39/utilities/const.dart';
 import 'package:chat39/view/widgets/default_form_field.dart';
 import 'package:chat39/view/widgets/default_text.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
+
   bool? isPassword;
   var formKey = GlobalKey<FormState>();
 
@@ -137,16 +136,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             GoogleAuthButton(
-
-                              // onPressed: () async {
-                              //   await  ChatCubit.get(context).SignInByGoogle();
-                              //   // await ChatCubit.get(context).SignInByGoogle();
-                              //   // Navigator.push(
-                              //   //     context,
-                              //   //     MaterialPageRoute(
-                              //   //       builder: (context) => const HomeScreen(),
-                              //   //     ));
-
+                              onPressed: ()async{
+                                await cubit.singInByGoogle();
+                              },
                               style:  AuthButtonStyle(
                                 buttonType: AuthButtonType.icon,
                                 iconType: AuthIconType.secondary,
@@ -168,7 +160,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           height: 5,
                         ),
                         ElevatedButton(
-                            onPressed: () async {},
+                            onPressed: ()async {
+                              await cubit.image("cam");
+                            },
                             style: ElevatedButton.styleFrom(
                               primary: AppTheme.primary2Color,
                               shape: RoundedRectangleBorder(
